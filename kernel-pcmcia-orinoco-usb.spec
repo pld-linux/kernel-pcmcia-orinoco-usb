@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_dist_kernel	- without kernel from distribution
+%bcond_without	dist_kernel	# without distribution kernel
 #
 Summary:	Orinoco wireless cards driver
 Summary(pl):	Sterownik kart bezprzewodowych Orinoco
@@ -10,12 +10,12 @@ Version:	0.0.8
 Release:	%{rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
-URL:		http://ranty.ddts.net/~ranty/orinoco/
 Source0:	http://ranty.ddts.net/~ranty/orinoco/driver/cvs-%{version}.tar.bz2
 # Source0-md5:	f791ac19f39f9e3ba17a7a3f91221fab
-%{!?_without_dist_kernel:BuildRequires:	kernel-source}
+URL:		http://ranty.ddts.net/~ranty/orinoco/
+%{?with_dist_kernel:BuildRequires:	kernel-source}
 BuildRequires:	rpmbuild(macros) >= 1.118
-%{!?_without_dist_kernel:%requires_releq_kernel_up}
+%{?with_dist_kernel:%requires_releq_kernel_up}
 Requires(post,postun):	/sbin/depmod
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -31,7 +31,7 @@ Summary:	Orinoco wireless cards SMP driver
 Summary(pl):	Sterownik SMP dla bezprzewodowych kart Orinoco
 Release:	%{rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
-%{!?_without_dist_kernel:%requires_releq_kernel_up}
+%{?with_dist_kernel:%requires_releq_kernel_up}
 Requires(post,postun):	/sbin/depmod
 
 %description -n kernel-smp-pcmcia-orinoco-usb
@@ -59,10 +59,10 @@ mv driver/*.o smp/
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}{,smp}/kernel/drivers/net/wireless/
+install -d $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}{,smp}/kernel/drivers/net/wireless
 
-install driver/*.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/kernel/drivers/net/wireless/
-install smp/*.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/kernel/drivers/net/wireless/
+install driver/*.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/kernel/drivers/net/wireless
+install smp/*.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/kernel/drivers/net/wireless
 
 %clean
 rm -rf $RPM_BUILD_ROOT
