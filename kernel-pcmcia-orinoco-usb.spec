@@ -12,6 +12,7 @@ License:	GPL
 Group:		Base/Kernel
 URL:		http://ranty.ddts.net/~ranty/orinoco/
 Source0:	http://ranty.ddts.net/~ranty/orinoco/driver/cvs-%{version}.tar.bz2
+# Source0-md5:	f791ac19f39f9e3ba17a7a3f91221fab
 %{!?_without_dist_kernel:BuildRequires:	kernel-source}
 %{!?_without_dist_kernel:%requires_releq_kernel_up}
 Requires(post,postun):	/sbin/depmod
