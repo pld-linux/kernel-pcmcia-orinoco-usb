@@ -4,13 +4,13 @@
 Summary:	Orinoco wireless cards driver
 Summary(pl):	Sterownik kart bezprzewodowych Orinoco
 Name:		kernel-pcmcia-orinoco-usb
-Version:	0.0.7
+Version:	0.0.8
 %define	rel	0
 Release:	%{rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
 URL:		http://ranty.ddts.net/~ranty/orinoco/
-Source0:	cvs-%{version}.tar.bz2
+Source0:	http://ranty.ddts.net/~ranty/orinoco/driver/cvs-%{version}.tar.bz2
 %{!?_without_dist_kernel:BuildRequires:	kernel-source}
 %{!?_without_dist_kernel:%requires_releq_kernel_up}
 Requires(post,postun):	/sbin/depmod
@@ -78,8 +78,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc firmware/Makefile README util/*.c
 /lib/modules/%{_kernel_ver}/kernel/drivers/net/wireless/*
 
 %files -n kernel-smp-pcmcia-orinoco-usb
 %defattr(644,root,root,755)
+%doc firmware/Makefile README util/*.c
 /lib/modules/%{_kernel_ver}smp/kernel/drivers/net/wireless/*
