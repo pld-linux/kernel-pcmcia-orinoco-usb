@@ -36,7 +36,7 @@ Orinoco wireless cards driver (including USB). SMP version.
 
 %description -n kernel-smp-pcmcia-orinoco-usb -l pl
 Sterownik kart bezprzewodowych Orinoco (w³±czaj±c USB). Wersja dla
-komputerów wieloprocesorowych.
+j±der wieloprocesorowych.
 
 %prep
 %setup -q -n cvs-%{version}
