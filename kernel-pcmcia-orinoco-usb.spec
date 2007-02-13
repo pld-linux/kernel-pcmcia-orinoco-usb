@@ -3,7 +3,7 @@
 %bcond_without	dist_kernel	# without distribution kernel
 #
 Summary:	Orinoco wireless cards driver
-Summary(pl.UTF-8):   Sterownik kart bezprzewodowych Orinoco
+Summary(pl.UTF-8):	Sterownik kart bezprzewodowych Orinoco
 Name:		kernel-pcmcia-orinoco-usb
 Version:	0.0.8
 %define	rel	0
@@ -28,7 +28,7 @@ Sterownik kart bezprzewodowych Orinoco (łącznie z USB).
 
 %package -n kernel-smp-pcmcia-orinoco-usb
 Summary:	Orinoco wireless cards SMP driver
-Summary(pl.UTF-8):   Sterownik SMP dla bezprzewodowych kart Orinoco
+Summary(pl.UTF-8):	Sterownik SMP dla bezprzewodowych kart Orinoco
 Release:	%{rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 %{?with_dist_kernel:%requires_releq_kernel_up}
