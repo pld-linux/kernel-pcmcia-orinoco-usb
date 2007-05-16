@@ -1,4 +1,5 @@
 #
+#
 # Conditional build:
 %bcond_without	dist_kernel	# without distribution kernel
 #
